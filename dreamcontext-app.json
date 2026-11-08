@@ -1,0 +1,20 @@
+{
+  "slug": "yuk-izleme",
+  "name": "Yük İzleme",
+  "icon": "icon.png",
+  "backend": {
+    "command": "node server.mjs",
+    "health": "/health"
+  },
+  "actions": [
+    {
+      "id": "snapshot",
+      "title": "Tek ölçüm: makine ve dreamcontext yükü",
+      "method": "GET",
+      "path": "/api/yuk"
+    }
+  ],
+  "agent": {
+    "own": true
+  }
+}

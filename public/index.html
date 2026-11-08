@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Yük İzleme</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top">
+  <strong class="brand">Yük İzleme</strong>
+  <p class="stamp" id="stamp">Ölçülüyor</p>
+</header>
+
+<main id="load" class="load">
+  <section class="hull-wrap" aria-label="Ambar">
+    <div class="hull" id="hull">
+      <div class="marks" id="marks" aria-hidden="true"></div>
+      <div class="hold" id="hold">
+        <div class="line" id="line"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20"/><path d="M0 24h48"/></svg><span id="line-text"></span></div>
+        <div class="over" id="over"><span id="over-text"></span></div>
+        <div class="stack" id="stack"></div>
+      </div>
+    </div>
+    <p class="hull-note" id="hull-note"></p>
+  </section>
+
+  <section class="read">
+    <div class="verdict" aria-live="polite">
+      <h1 id="title">Makine ölçülüyor.</h1>
+      <p id="detail"></p>
+    </div>
+
+    <div class="res" role="group" aria-label="Ambarda gösterilen kaynak">
+      <button type="button" class="res-btn" data-res="cpu" aria-pressed="false"><span>İşlemci</span><b id="res-cpu">–</b><small id="res-cpu-note"></small></button>
+      <div class="res-temp" id="res-temp-box"><span>Sıcaklık</span><b id="res-temp">–</b><small id="res-temp-note"></small></div>
+      <button type="button" class="res-btn" data-res="mem" aria-pressed="false"><span>Bellek</span><b id="res-mem">–</b><small id="res-mem-note"></small></button>
+      <button type="button" class="res-btn" data-res="disk" aria-pressed="false"><span>Disk</span><b id="res-disk">–</b><small id="res-disk-note"></small></button>
+    </div>
+
+    <div class="who">
+      <h2 id="who-title">Sorumlular</h2>
+      <ol id="groups"></ol>
+      <p class="share" id="share"></p>
+    </div>
+
+    <div class="tide">
+      <div class="tide-head">
+        <h2>Son 5 dakika, işlemci ve sıcaklık</h2>
+        <p><span class="key key-m"></span>Makine <span class="key key-d"></span>dreamcontext ve dev işleri <span class="key key-t"></span>Sıcaklık</p>
+      </div>
+      <svg id="tide" viewBox="0 0 600 100" preserveAspectRatio="none" role="img" aria-label="Son 5 dakikanın işlemci kullanımı ve sıcaklığı"></svg>
+      <div class="tide-axis"><span>5 dk önce</span><span>şimdi</span></div>
+    </div>
+
+    <div class="heavy">
+      <h2>En ağır süreçler</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th scope="col">Süreç</th><th scope="col">Grup</th><th scope="col" class="n">İşlemci</th><th scope="col" class="n">Bellek</th></tr></thead>
+        <tbody id="top"></tbody>
+      </table></div>
+    </div>
+  </section>
+</main>
+
+<script type="module" src="/app.js"></script>
+</body>
+</html>
